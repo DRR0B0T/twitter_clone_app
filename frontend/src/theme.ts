@@ -5,7 +5,6 @@ import { red } from '@material-ui/core/colors';
 
 export const theme = createMuiTheme({
     typography: {
-
         fontFamily: [
             'system-ui',
             '-apple-system',
@@ -31,6 +30,9 @@ export const theme = createMuiTheme({
         },
         background: {
             default: '#fff',
+        },
+        inherit: {
+            main: 'rgb(0,0,0)'
         }
     },
     shadows: [],

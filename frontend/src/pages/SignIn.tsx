@@ -26,11 +26,11 @@ export const useStylesSignIn = makeStyles((theme) => ({
     },
     blueSideBigIconTwitter: {
         position: 'absolute',
-        left: '40%',
+        left: '70%',
         top: '55%',
         transform: 'translate(-50%, -50%)',
-        width: '250%',
-        height: '350%',
+        width: '175%',
+        height: '175%',
     },
     blueSideListInfo: {
         position: 'relative',
@@ -38,7 +38,7 @@ export const useStylesSignIn = makeStyles((theme) => ({
         padding: 0,
         margin: 0,
         marginTop: 60,
-        width: 380,
+        width: 420,
         '& h6': {
             display: 'flex',
             alignItems: 'center',
@@ -84,7 +84,7 @@ export const useStylesSignIn = makeStyles((theme) => ({
 
 }))
 
-function SignIn() {
+export const SignIn: React.FC = (): React.ReactElement => {
     const classes = useStylesSignIn()
     const [visibleModal, setVisibleModal] = React.useState<'signIn' | 'signUp'>()
 
@@ -250,4 +250,3 @@ function SignIn() {
     </div>;
 }
 
-export default SignIn;
