@@ -4,21 +4,13 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import SearchIcon from '@material-ui/icons/Search';
 import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
-import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import IconButton from "@material-ui/core/IconButton";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import FormControl from "@material-ui/core/FormControl";
-import TextField from "@material-ui/core/TextField";
 import FormGroup from "@material-ui/core/FormGroup";
-import FormLabel from "@material-ui/core/FormLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import Radio from "@material-ui/core/Radio";
-import DialogActions from "@material-ui/core/DialogActions";
-import CloseIcon from '@material-ui/icons/Close';
+import TextField from "@material-ui/core/TextField";
+import FormControl from "@material-ui/core/FormControl";
+import DialogWindow from "../components/DialogWindow/DialogWindow";
 
-const useStyles = makeStyles((theme) => ({
+
+export const useStylesSignIn = makeStyles((theme) => ({
     wrapper: {
         display: 'flex',
         height: '100vh',
@@ -39,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
         transform: 'translate(-50%, -50%)',
         width: '250%',
         height: '350%',
-
     },
     blueSideListInfo: {
         position: 'relative',
@@ -68,11 +59,9 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'center',
         flex: '0 0 50%',
-
     },
     loginSideTwitterIcon: {
         fontSize: 43,
-
     },
     loginSideWrapper: {
         width: 380,
@@ -83,20 +72,33 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: 60,
         marginTop: 30,
     },
+    loginSideFormField: {
+        marginBottom: 18,
+    },
+    loginSideRegisterField: {
+        marginBottom: theme.spacing(6),
+    },
+    loginSideRegisterFormControl: {
+        marginBottom: theme.spacing(4),
+    }
 
 }))
 
 function SignIn() {
-    const [open, setOpen] = React.useState(false)
-    const classes =useStyles()
+    const classes = useStylesSignIn()
+    const [visibleModal, setVisibleModal] = React.useState<'signIn' | 'signUp'>()
 
-    const handleClickOpen = () => {
-        setOpen(true)
+    const handleClickOpenSignIn = (): void => {
+        setVisibleModal('signIn')
+    }
+    const handleClickOpenSignUp = (): void => {
+        setVisibleModal('signUp')
     }
 
-    const handleClose = () => {
-        setOpen(false)
+    const handleCloseModal = (): void => {
+        setVisibleModal(undefined )
     }
+
 
     return <div className={classes.wrapper}>
         <section className={classes.blueSide}>
@@ -132,54 +134,117 @@ function SignIn() {
                     <b>Присоединяйтесь к Твиттеру прямо сейчас</b>
                 </Typography>
                 <br/>
-                <Button style={{ marginBottom: 20 }} variant='contained' color='primary' fullWidth>
+                <Button onClick={handleClickOpenSignUp} style={{ marginBottom: 20 }} variant='contained' color='primary' fullWidth>
                     Зарегистрироваться
                 </Button>
 
-                <Button onClick={handleClickOpen} variant='outlined' color='primary' fullWidth>
+                <Button onClick={handleClickOpenSignIn} variant='outlined' color='primary' fullWidth>
                     Войти
                 </Button>
 
-                <Dialog open={open} onClose={handleClose} aria-busy={true}>
-                    <DialogTitle id='form-dialog-title'>
-                        <IconButton onClick={handleClose} color='secondary' aria-label='close'>
-                            <CloseIcon style={{ fontSize: 26 }} color='primary'></CloseIcon>
-                        </IconButton>
-                        Войти в Твиттер
-                    </DialogTitle>
-                    <DialogContent>
-
-                        <FormControl component='fieldset' fullWidth>
-                            <FormGroup aria-label='position' row>
-                                <TextField
+                <DialogWindow
+                    visible={visibleModal === 'signIn'}
+                    onClose={handleCloseModal}
+                    classes={classes}
+                    title='Войти в аккаунт'>
+                    <FormControl className={classes.loginSideRegisterFormControl} component='fieldset' fullWidth>
+                        <FormGroup aria-label='position' row>
+                            <TextField
+                                className={classes.loginSideFormField}
                                 autoFocus
-                                margin='dense'
                                 id='email'
                                 label='E-mail'
                                 type='email'
                                 fullWidth
-                                />
-                                <TextField
+                                variant='filled'
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                            />
+                            <TextField
+                                className={classes.loginSideFormField}
+                                variant='filled'
                                 autoFocus
                                 margin='dense'
                                 id='password'
                                 label='Пароль'
                                 type='password'
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
                                 fullWidth
-                                />
+                            />
+                            <Button
+                                onClick={handleCloseModal}
+                                variant='contained'
+                                color='primary'
+                                fullWidth
+                            >
+                                Войти
+                            </Button>
+                        </FormGroup>
+                    </FormControl>
+                </DialogWindow>
 
-                            </FormGroup>
-                        </FormControl>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={handleClose} color='primary'>
-                            Cancel
-                        </Button>
-                        <Button variant='contained' color='primary'>
-                            Subscribe
-                        </Button>
-                    </DialogActions>
-                </Dialog>
+                <DialogWindow
+                    visible={visibleModal === 'signUp'}
+                    onClose={handleCloseModal}
+                    classes={classes}
+                    title='Создайте учётную запись'>
+                    <FormControl className={classes.loginSideRegisterFormControl} component='fieldset' fullWidth>
+                        <FormGroup aria-label='position' row>
+                            <TextField
+                                className={classes.loginSideRegisterField}
+                                autoFocus
+                                id='name'
+                                label='Имя'
+                                type='name'
+                                fullWidth
+                                variant='filled'
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                            />
+                            <TextField
+                                className={classes.loginSideRegisterField}
+                                autoFocus
+                                id='e-mail'
+                                label='E-mail'
+                                type='e-mail'
+                                fullWidth
+                                variant='filled'
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                            />
+                            <TextField
+                                className={classes.loginSideRegisterField}
+                                variant='filled'
+                                autoFocus
+                                margin='dense'
+                                id='password'
+                                label='Пароль'
+                                type='password'
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                fullWidth
+                            />
+                            <Button
+                                onClick={handleCloseModal}
+                                variant='contained'
+                                color='primary'
+                                fullWidth
+                            >
+                                Далее
+                            </Button>
+                            <br/>
+                            <br/>
+
+                        </FormGroup>
+                    </FormControl>
+                </DialogWindow>
+
             </div>
         </section>
     </div>;
