@@ -50,7 +50,7 @@ export const theme = createMuiTheme({
                 paddingRight: 20,
             },
             outlinedPrimary: {
-                borderColor: 'rgb(29, 161 243)'
+                borderColor: 'rgb(29, 161, 243)'
             },
         },
         MuiFilledInput: {
