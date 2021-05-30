@@ -20,15 +20,11 @@ interface TweetProps {
 export const  Tweet: React.FC<TweetProps> = ({ text, user, classes }: TweetProps): React.ReactElement => {
     return (
         <Paper className={classNames(classes.tweet, classes.tweetHeader ) }  variant="outlined" >
-            <Grid container spacing={3}>
-                <Grid item xs={1}>
                     <Avatar
                         className={classes.tweetAvatar}
                         alt={`Аватарка пользователя ${user.fullname}`}
                         src={user.avatarUrl}
                     />
-                </Grid>
-                <Grid item xs={11}>
                     <Typography>
                         <b>{user.fullname}</b>&nbsp;
                         <span className={classes.tweetUserName}>@{user.username}</span>&nbsp;
@@ -61,8 +57,6 @@ export const  Tweet: React.FC<TweetProps> = ({ text, user, classes }: TweetProps
                             </IconButton>
                         </div>
                     </div>
-                </Grid>
-            </Grid>
-        </Paper>
+         </Paper>
     );
 }
