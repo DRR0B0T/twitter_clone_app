@@ -1,13 +1,13 @@
 import React from 'react';
 import {Avatar, Grid, IconButton, Paper, Typography} from "@material-ui/core";
 import classNames from "classnames";
-import {useHomeStyles} from "../../pages/Home";
+import { useHomeStyles } from "../../pages/Home";
 import ChatBubbleOutlineOutlinedIcon from "@material-ui/icons/ChatBubbleOutlineOutlined";
 import RepeatOutlinedIcon from '@material-ui/icons/RepeatOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import ReplyOutlinedIcon from '@material-ui/icons/ReplyOutlined';
 
-interface TwwetProps {
+interface TweetProps {
     text: string;
     classes: ReturnType<typeof useHomeStyles>;
     user: {
@@ -17,18 +17,23 @@ interface TwwetProps {
     }
 }
 
-export const  Tweet: React.FC<TwwetProps> = ({text,user,classes}: TwwetProps): React.ReactElement => {
+export const  Tweet: React.FC<TweetProps> = ({ text, user, classes }: TweetProps): React.ReactElement => {
     return (
         <Paper className={classNames(classes.tweet, classes.tweetHeader ) }  variant="outlined" >
             <Grid container spacing={3}>
                 <Grid item xs={1}>
                     <Avatar
+                        className={classes.tweetAvatar}
                         alt={`Аватарка пользователя ${user.fullname}`}
-                        src={user.avatarUrl} />
+                        src={user.avatarUrl}
+                    />
                 </Grid>
                 <Grid item xs={11}>
                     <Typography>
-                        <b>{user.fullname}</b> <span className={classes.tweetUserName}>@{user.username}</span>
+                        <b>{user.fullname}</b>&nbsp;
+                        <span className={classes.tweetUserName}>@{user.username}</span>&nbsp;
+                        <span className={classes.tweetUserName}>·</span>&nbsp;
+                        <span className={classes.tweetUserName}>1 ч</span>
                     </Typography>
                     <Typography variant='body1' gutterBottom>
                         {text}

@@ -6,25 +6,17 @@ import {
     makeStyles,
     Container,
     withStyles,
-    IconButton,
     createStyles,
     InputBase,
-    Avatar,
+    Theme,
 } from "@material-ui/core";
-import TwitterIcon from '@material-ui/icons/Twitter';
-import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import SearchIcon from '@material-ui/icons/Search';
-import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
-import MailOutlineOutlinedIcon from '@material-ui/icons/MailOutlineOutlined';
-import BookmarkBorderOutlinedIcon from '@material-ui/icons/BookmarkBorderOutlined';
-import FeaturedPlayListOutlinedIcon from '@material-ui/icons/FeaturedPlayListOutlined';
-import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
 import { grey } from '@material-ui/core/colors';
 import {Tweet} from "../components/Tweet/Tweet";
+import {SideBar} from "../components/SideBar/SideBar";
 
 
 
-export const useHomeStyles = makeStyles(() => ({
+export const useHomeStyles = makeStyles((theme: Theme) => ({
     wrapper: {
       height: '100vh',
     },
@@ -38,10 +30,36 @@ export const useHomeStyles = makeStyles(() => ({
         listStyle: 'none',
         padding: 0,
         margin: 0,
+        width: 230,
+    },
+    sideMenuTweetButton: {
+        padding: theme.spacing(3.2),
+        marginTop: theme.spacing(2),
     },
     sideMenuListItem: {
-        display: 'flex',
-        alignItems: 'center',
+        cursor: 'pointer',
+
+        '&:hover':{
+            '& div':{
+                backgroundColor: "rgba(29,161,242,0.1)",
+                '& h6': {
+                    color: theme.palette.primary.main,
+                },
+                '& svg path': {
+                    fill: theme.palette.primary.main,
+                }
+            }
+        },
+        '& div': {
+            display: 'inline-flex',
+            alignItems: 'center',
+            padding: '0 25px 0 12px',
+            borderRadius: 30,
+            height: 50,
+            marginBottom: 8,
+            transition: 'background-color 0.1s ease-in-out',
+        },
+
     },
     sideMenuListItemLabel: {
         fontWeight: 700,
@@ -49,7 +67,8 @@ export const useHomeStyles = makeStyles(() => ({
         marginLeft: 15,
     },
     sideMenuListItemIcon: {
-        fontSize: 26,
+        fontSize: 32,
+        marginLeft: '-5px',
     },
     tweetsWrapper: {
         borderRadius: 0,
@@ -72,11 +91,18 @@ export const useHomeStyles = makeStyles(() => ({
     },
     tweet: {
         cursor: 'pointer',
+        padding: 20,
         '&:hover': {
            backgroundColor: 'rgb(245, 248, 250)',
         }
+},
+    tweetAvatar: {
+        width: theme.spacing(6),
+        height: theme.spacing(6),
     },
     tweetUserFooter: {
+        position: 'relative',
+        left: -14,
         display: 'flex',
         justifyContent: 'space-between',
         width: 450,
@@ -104,79 +130,32 @@ export const Home = () => {
             <Container className={classes.wrapper} maxWidth="lg">
                 <Grid container  spacing={3}>
                     <Grid item xs={3}>
-
-                        <ul className={classes.sideMenuList}>
-                            <li className={classes.sideMenuListItem} >
-                                <IconButton className={classes.logoIcon} aria-label="delete" color='primary' >
-                                    <TwitterIcon className={classes.logo} />
-                                </IconButton>
-                            </li>
-                            <li className={classes.sideMenuListItem} >
-                                <IconButton aria-label="delete" color='primary' >
-                                    <HomeOutlinedIcon className={classes.sideMenuListItemIcon} />
-                                </IconButton>
-                                <Typography color='primary' className={classes.sideMenuListItemLabel} variant='h6'>Главная</Typography>
-                            </li>
-                            <li className={classes.sideMenuListItem} >
-                                <IconButton aria-label="delete" color='inherit' >
-                                    <SearchIcon className={classes.sideMenuListItemIcon} />
-                                </IconButton>
-                                <Typography className={classes.sideMenuListItemLabel} variant='h6'>Поиск</Typography>
-                            </li>
-                            <li className={classes.sideMenuListItem} >
-                                <IconButton aria-label="delete" color='inherit' >
-                                    <NotificationsNoneOutlinedIcon className={classes.sideMenuListItemIcon} />
-                                </IconButton>
-                                <Typography className={classes.sideMenuListItemLabel} variant='h6'>Уведомления</Typography>
-                            </li>
-                            <li className={classes.sideMenuListItem} >
-                                <IconButton aria-label="delete" color='inherit' >
-                                    <MailOutlineOutlinedIcon className={classes.sideMenuListItemIcon} />
-                                </IconButton>
-                                <Typography className={classes.sideMenuListItemLabel} variant='h6'>Сообщения</Typography>
-                            </li>
-                            <li className={classes.sideMenuListItem} >
-                                <IconButton aria-label="delete" color='inherit' >
-                                    <BookmarkBorderOutlinedIcon className={classes.sideMenuListItemIcon} />
-                                </IconButton>
-                                <Typography className={classes.sideMenuListItemLabel} variant='h6'>Закладки</Typography>
-                            </li>
-                            <li className={classes.sideMenuListItem} >
-                                <IconButton aria-label="delete" color='inherit' >
-                                    <FeaturedPlayListOutlinedIcon className={classes.sideMenuListItemIcon} />
-                                </IconButton>
-                                <Typography className={classes.sideMenuListItemLabel} variant='h6'>Списки</Typography>
-                            </li>
-                            <li className={classes.sideMenuListItem} >
-                                <IconButton aria-label="delete" color='inherit' >
-                                    <PermIdentityOutlinedIcon className={classes.sideMenuListItemIcon} />
-                                </IconButton>
-                                <Typography className={classes.sideMenuListItemLabel} variant='h6'>Профиль</Typography>
-                            </li>
-                        </ul>
+                        <SideBar classes={classes}/>
                     </Grid>
                     <Grid item xs={6}>
                         <Paper className={classes.tweetsWrapper} variant="outlined" >
                         <Paper className={classes.tweetHeader}  variant="outlined" >
                             <Typography variant='h6'>Главная</Typography>
                         </Paper>
+                            {
+                                [...new Array(20).fill(<Paper className={classes.tweetsWrapper} variant="outlined" >
+                                    <Tweet
+                                        text='Американские политики провели слушания «Понимание авторитаризма и клептократии в России». На них обсуждали ситуацию с Навальным, голосование по Конституции, санкции против «Северного потока-2», а также коррупцию и цензуру в России.'
+                                        user={{
+                                            fullname: 'Дмитрий Медведев',
+                                            username: 'MedvedevRussia',
+                                            avatarUrl: "https://images.unsplash.com/photo-1497551060073-4c5ab6435f12?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fG1hbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                                        }}
+                                        classes={classes}
+                                    />
+                                </Paper>)]
+                            }
                         </Paper>
-                        <Paper className={classes.tweetsWrapper} variant="outlined" >
-                            <Tweet
-                                text='Американские политики провели слушания «Понимание авторитаризма и клептократии в России». На них обсуждали ситуацию с Навальным, голосование по Конституции, санкции против «Северного потока-2», а также коррупцию и цензуру в России.'
-                                classes={classes}
-                                user={{
-                                    fullname: 'Дмитрий Медведев',
-                                    username: 'MedvedevRussia',
-                                    avatarUrl: 'https://images.unsplash.com/photo-1497551060073-4c5ab6435f12?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fG1hbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
-                                }}
-                            />
-                        </Paper>
+
                     </Grid>
                     <Grid  item xs={3}>
                         <SearchTextField
-                            placeholder='Поиск по Твиттеру'
-
+                            placeholder='Поиск в Твиттере'
                             fullWidth
                         />
                     </Grid>
