@@ -3,7 +3,7 @@ import {Avatar, Button, CircularProgress, IconButton, TextareaAutosize} from "@m
 import classNames from "classnames";
 import ImageOutlinedIcon from "@material-ui/icons/ImageOutlined";
 import SentimentSatisfiedOutlinedIcon from "@material-ui/icons/SentimentSatisfiedOutlined";
-import {useHomeStyles} from "../../pages/Home";
+import {useHomeStyles} from "../../pages/Home/theme";
 
 interface AddTweetFormProps {
   classes: ReturnType<typeof useHomeStyles>;
@@ -13,13 +13,17 @@ const MAX_LENGTH = 280
 
  const AddTweetForm: React.FC<AddTweetFormProps> = ({classes}: AddTweetFormProps): React.ReactElement => {
    const [text, setText] = React.useState('');
-   const textLimitPercent = Math.round((text.length / 280) * 100);
+   const textLimitPercent = Math.round((text.length / 280) * 100)
    const textCount = MAX_LENGTH - text.length ;
 
-   const handleChangeTextArea = (e: React.FormEvent<HTMLTextAreaElement>) => {
+   const handleChangeTextArea = (e: React.FormEvent<HTMLTextAreaElement>): void => {
      if (e.currentTarget) {
        setText(e.currentTarget.value)
      }
+   }
+
+   const handleClickAddTweet =(): void=> {
+     setText('')
    }
 
    return (<div className={classes.addForm}>
@@ -56,8 +60,8 @@ const MAX_LENGTH = 280
           variant='static'
           size={20}
           thickness={5}
-          value={textLimitPercent > 100 ? 100 : textLimitPercent}
-          style={textLimitPercent >= 100 ? { color: 'red' } : undefined}
+          value={text.length >= MAX_LENGTH ? 100 : textLimitPercent}
+          style={text.length >= MAX_LENGTH ? { color: 'red' } : undefined}
           />
           <CircularProgress
           style={{color: 'rgba(0,0,0,0.1)'}}
@@ -69,7 +73,12 @@ const MAX_LENGTH = 280
           </div>
           </>)
         }
-        <Button disabled={textLimitPercent >= 100} color='primary' variant='contained'>
+        <Button
+          onClick={handleClickAddTweet}
+          disabled={text.length >= MAX_LENGTH}
+          color='primary'
+          variant='contained'
+        >
           Твитнуть
         </Button>
       </div>

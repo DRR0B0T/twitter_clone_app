@@ -1,11 +1,11 @@
 import React from 'react';
 import {Avatar, IconButton, Paper, Typography} from "@material-ui/core";
 import classNames from "classnames";
-import { useHomeStyles } from "../../pages/Home";
 import ChatBubbleOutlineOutlinedIcon from "@material-ui/icons/ChatBubbleOutlineOutlined";
 import RepeatOutlinedIcon from '@material-ui/icons/RepeatOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import ReplyOutlinedIcon from '@material-ui/icons/ReplyOutlined';
+import {useHomeStyles} from "../../pages/Home/theme";
 
 interface TweetProps {
     text: string;

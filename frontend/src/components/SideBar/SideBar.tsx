@@ -9,7 +9,7 @@ import BookmarkBorderOutlinedIcon from "@material-ui/icons/BookmarkBorderOutline
 import FeaturedPlayListOutlinedIcon from "@material-ui/icons/FeaturedPlayListOutlined";
 import PermIdentityOutlinedIcon from "@material-ui/icons/PermIdentityOutlined";
 import CreateIcon from '@material-ui/icons/Create';
-import {useHomeStyles} from "../../pages/Home";
+import {useHomeStyles} from "../../pages/Home/theme";
 
 interface SideBarProps {
     classes: ReturnType<typeof useHomeStyles>
