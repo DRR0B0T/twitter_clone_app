@@ -1,5 +1,5 @@
 import React from 'react';
-import {Avatar, Grid, IconButton, Paper, Typography} from "@material-ui/core";
+import {Avatar, IconButton, Paper, Typography} from "@material-ui/core";
 import classNames from "classnames";
 import { useHomeStyles } from "../../pages/Home";
 import ChatBubbleOutlineOutlinedIcon from "@material-ui/icons/ChatBubbleOutlineOutlined";
@@ -31,9 +31,11 @@ export const  Tweet: React.FC<TweetProps> = ({ text, user, classes }: TweetProps
                         <span className={classes.tweetUserName}>·</span>&nbsp;
                         <span className={classes.tweetUserName}>1 ч</span>
                     </Typography>
-                    <Typography variant='body1' gutterBottom>
+                    <Typography className={classes.tweetHeader} variant='body1' gutterBottom>
                         {text}
                     </Typography>
+
+
                     <div className={classes.tweetUserFooter}>
                         <div>
                             <IconButton color='primary'>

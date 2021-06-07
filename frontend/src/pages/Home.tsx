@@ -7,19 +7,16 @@ import {
     Container,
     withStyles,
     Theme,
-    TextareaAutosize,
     TextField,
     Avatar,
-    IconButton, CircularProgress, Button, InputAdornment, List, ListItem, ListItemText, Divider, ListItemAvatar,
+     Button, InputAdornment, List, ListItem, ListItemText, Divider, ListItemAvatar,
 } from "@material-ui/core";
 import { grey } from '@material-ui/core/colors';
 import {Tweet} from "../components/Tweet/Tweet";
 import {SideBar} from "../components/SideBar/SideBar";
-import classNames from "classnames";
-import SentimentSatisfiedOutlinedIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
-import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import SearchIcon from '@material-ui/icons/SearchOutlined';
 import PersonAddIcon from '@material-ui/icons/PersonAddOutlined';
+import AddTweetForm from "../components/AddTweetForm/AddTweetForm";
 
 
 export const useHomeStyles = makeStyles((theme: Theme) => ({
@@ -41,30 +38,40 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
         maxWidth: 230,
     },
     sideMenuTweetButton: {
-        padding: theme.spacing(3.2),
-        marginTop: theme.spacing(2),
+        padding: theme.spacing(3.5),
+        marginTop: theme.spacing(3),
     },
     sideMenuListItem: {
         cursor: 'pointer',
-        display: 'flex',
+        display: 'inline-flex',
+        position: 'relative',
         marginBottom: 10,
         padding: '0 25px 0 12px',
         borderRadius: 30,
         height: 50,
         transition: 'background-color 0.1s ease-in-out',
         alignItems: 'center',
-
-
         '&:hover': {
-            backgroundColor: "rgba(29,161,242,0.1)",
-            '& h6': {
-                color: theme.palette.primary.main,
-            },
-            '& svg path': {
-                fill: theme.palette.primary.main,
-            },
-        },
 
+                backgroundColor: "rgba(29,161,242,0.1)",
+                '& h6': {
+                    color: theme.palette.primary.main,
+                },
+                '& svg path': {
+                    fill: theme.palette.primary.main,
+                },
+
+        },
+        // '& div': {
+        //     display: 'inline-flex',
+        //     position: 'relative',
+        //     marginBottom: 10,
+        //     padding: '0 25px 0 12px',
+        //     borderRadius: 30,
+        //     height: 50,
+        //     transition: 'background-color 0.1s ease-in-out',
+        //     alignItems: 'center',
+        // }
     },
     sideMenuListItemLabel: {
         fontWeight: 700,
@@ -73,9 +80,10 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
     },
     sideMenuListItemIcon: {
         fontSize: 32,
-        marginLeft: '-5px',
+        marginLeft: -5,
     },
     tweetsWrapper: {
+        height: '100%',
         borderRadius: 0,
         borderTop: '0',
         borderBottom: '0',
@@ -90,11 +98,12 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
         }
     },
     tweetHeader: {
+        display: 'flex',
+
         borderTop: '0',
         borderRight: '0',
         borderLeft: '0',
         borderRadius: 0,
-        position: 'sticky',
         top: 0,
         padding: '10px 15px',
         '& h6': {
@@ -107,9 +116,9 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
         marginRight: 15,
     },
     tweetUserFooter: {
+        display: 'flex',
         position: 'relative',
         left: -14,
-        display: 'flex',
         justifyContent: 'space-between',
         maxWidth: 450,
     },
@@ -248,63 +257,22 @@ export const Home = ():React.ReactElement => {
                         </Paper>
 
                             <Paper>
-                                <div className={classes.addForm}>
-                                    <div className={classes.addFormBody}>
-                                        <Avatar
-                                            className={classes.tweetAvatar}
-                                            alt={`Аватарка пользователя UserAvatar`}
-                                            src='https://images.unsplash.com/photo-1497551060073-4c5ab6435f12?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fG1hbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-                                        />
-                                        <TextareaAutosize
-                                            className={classes.addFormTextarea}
-                                            placeholder="Что происходит?"
-                                        />
-                                    </div>
-                                    <div className={classes.addFormBottom}>
-                                        <div className={classNames(classes.tweetUserFooter, classes.addFormBottomActions)}>
-                                            <IconButton color='primary'>
-                                                <ImageOutlinedIcon style={{ fontSize: 26, }} />
-                                            </IconButton>
-                                            <IconButton color='primary'>
-                                                <SentimentSatisfiedOutlinedIcon style={{ fontSize: 26, }} />
-                                            </IconButton>
-                                        </div>
-
-                                    <div className={classes.addFormBottomRight}>
-                                        <span>280</span>
-                                        <div className={classes.addFormCircleProgress}>
-                                            <CircularProgress
-                                                variant='static'
-                                                size={20}
-                                                thickness={4}
-                                                value={18}
-                                            />
-                                            <CircularProgress
-                                                style={{color:'rgba(0,0,0,0.1)'}}
-                                                variant='static'
-                                                size={20}
-                                                thickness={4}
-                                                value={100}
-                                            />
-                                        </div>
-                                            <Button color='primary' variant='contained'>
-                                                Твитнуть
-                                            </Button>
-                                        </div>
-                                    </div>
-                                </div>
+                                <AddTweetForm classes={classes}/>
                                 <div className={classes.addFormBottomLine} />
                             </Paper>
 
                             {
-                                [...new Array(20).fill(<Paper className={classes.tweetsWrapper} variant="outlined" >
+                                [...new Array(10).fill(<Paper className={classes.tweetsWrapper}  variant="outlined" >
                                     <Tweet
-                                        text='Американские политики провели слушания «Понимание авторитаризма и клептократии в России». На них обсуждали ситуацию с Навальным, голосование по Конституции, санкции против «Северного потока-2», а также коррупцию и цензуру в России.'
                                         user={{
                                             fullname: 'Дмитрий Медведев',
                                             username: 'MedvedevRussia',
                                             avatarUrl: "https://images.unsplash.com/photo-1497551060073-4c5ab6435f12?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fG1hbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
                                         }}
+                                        text='Американские политики провели слушания
+                                        «Понимание авторитаризма и клептократии в России».
+                                        На них обсуждали ситуацию с Навальным, голосование по Конституции,
+                                        санкции против «Северного потока-2», а также коррупцию и цензуру в России.'
                                         classes={classes}
                                     />
                                 </Paper>)]

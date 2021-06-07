@@ -18,7 +18,7 @@ interface SideBarProps {
 export const SideBar: React.FC<SideBarProps> = ({classes}: SideBarProps): React.ReactElement => {
     return (
         <ul className={classes.sideMenuList}>
-            <li className={classes.sideMenuListItem} >
+            <li  >
                 <IconButton className={classes.logoIcon} aria-label="delete" color='primary' >
                     <TwitterIcon className={classes.logo} />
                 </IconButton>
@@ -81,7 +81,7 @@ export const SideBar: React.FC<SideBarProps> = ({classes}: SideBarProps): React.
                     </Typography>
                 </Hidden>
             </li>
-            <li className={classes.sideMenuListItem} >
+
                 <Button
                     className={classes.sideMenuTweetButton}
                     variant='contained'
@@ -92,7 +92,7 @@ export const SideBar: React.FC<SideBarProps> = ({classes}: SideBarProps): React.
                         <CreateIcon />
                     </Hidden>
                 </Button>
-            </li>
+
         </ul>
     );
 }
