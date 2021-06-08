@@ -26,35 +26,27 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
   },
   sideMenuListItem: {
     cursor: 'pointer',
-    display: 'inline-flex',
-    position: 'relative',
-    marginBottom: 10,
-    padding: '0 25px 0 12px',
-    borderRadius: 30,
-    height: 50,
-    transition: 'background-color 0.1s ease-in-out',
-    alignItems: 'center',
     '&:hover': {
-
-      backgroundColor: "rgba(29,161,242,0.1)",
-      '& h6': {
-        color: theme.palette.primary.main,
-      },
-      '& svg path': {
-        fill: theme.palette.primary.main,
-      },
-
+      '& div' : {
+        backgroundColor: "rgba(29,161,242,0.1)",
+        '& h6': {
+          color: theme.palette.primary.main,
+        },
+        '& svg path': {
+          fill: theme.palette.primary.main,
+        },
+      }
     },
-    // '& div': {
-    //     display: 'inline-flex',
-    //     position: 'relative',
-    //     marginBottom: 10,
-    //     padding: '0 25px 0 12px',
-    //     borderRadius: 30,
-    //     height: 50,
-    //     transition: 'background-color 0.1s ease-in-out',
-    //     alignItems: 'center',
-    // }
+    '& div': {
+        display: 'inline-flex',
+        position: 'relative',
+        marginBottom: 10,
+        padding: '0 25px 0 12px',
+        borderRadius: 30,
+        height: 50,
+        transition: 'background-color 0.1s ease-in-out',
+        alignItems: 'center',
+    }
   },
   sideMenuListItemLabel: {
     fontWeight: 700,

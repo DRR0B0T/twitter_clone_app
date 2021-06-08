@@ -10,89 +10,121 @@ import FeaturedPlayListOutlinedIcon from "@material-ui/icons/FeaturedPlayListOut
 import PermIdentityOutlinedIcon from "@material-ui/icons/PermIdentityOutlined";
 import CreateIcon from '@material-ui/icons/Create';
 import {useHomeStyles} from "../../pages/Home/theme";
+import DialogWindow from "../DialogWindow/DialogWindow";
+import AddTweetForm from "../AddTweetForm/AddTweetForm";
 
 interface SideBarProps {
     classes: ReturnType<typeof useHomeStyles>
 }
 
 export const SideBar: React.FC<SideBarProps> = ({classes}: SideBarProps): React.ReactElement => {
-    return (
+  const [visibleAddTweet, setVisibleAddTweet] = React.useState<boolean>(false);
+
+  const handleClickOpenAddTweet = () => {
+    setVisibleAddTweet(true)
+  }
+
+  const onCloseAddTweet = () => {
+    setVisibleAddTweet(false)
+  }
+
+  return (
         <ul className={classes.sideMenuList}>
-            <li  >
-                <IconButton className={classes.logoIcon} aria-label="delete" color='primary' >
-                    <TwitterIcon className={classes.logo} />
+            <li className={classes.sideMenuListItem} >
+                <IconButton className={classes.logo} aria-label="" color='primary' >
+                    <TwitterIcon className={classes.logoIcon} />
                 </IconButton>
             </li>
-            <li className={classes.sideMenuListItem} >
 
-                    <HomeOutlinedIcon className={classes.sideMenuListItemIcon} color='primary'/>
-                    <Hidden smDown>
+            <li className={classes.sideMenuListItem} >
+                    <div>
+                      <HomeOutlinedIcon className={classes.sideMenuListItemIcon} color='primary'/>
+                      <Hidden smDown>
                         <Typography color='primary' className={classes.sideMenuListItemLabel} variant='h6'>
-                            Главная
+                          Главная
                         </Typography>
-                    </Hidden>
-
-            </li>
-            <li className={classes.sideMenuListItem} >
-                <SearchIcon className={classes.sideMenuListItemIcon} />
-                <Hidden smDown>
-                    <Typography className={classes.sideMenuListItemLabel} variant='h6'>
-                        Поиск
-                    </Typography>
-                </Hidden>
-            </li>
-            <li className={classes.sideMenuListItem} >
-                <NotificationsNoneOutlinedIcon className={classes.sideMenuListItemIcon} />
-                <Hidden smDown>
-                    <Typography className={classes.sideMenuListItemLabel} variant='h6'>
-                        Уведомления
-                    </Typography>
-                </Hidden>
-            </li>
-            <li className={classes.sideMenuListItem} >
-                <MailOutlineOutlinedIcon className={classes.sideMenuListItemIcon} />
-                <Hidden smDown>
-                    <Typography className={classes.sideMenuListItemLabel} variant='h6'>
-                        Сообщения
-                    </Typography>
-                </Hidden>
-            </li>
-            <li className={classes.sideMenuListItem} >
-                <BookmarkBorderOutlinedIcon className={classes.sideMenuListItemIcon} />
-                <Hidden smDown>
-                    <Typography className={classes.sideMenuListItemLabel} variant='h6'>
-                        Закладки
-                    </Typography>
-                </Hidden>
-            </li>
-            <li className={classes.sideMenuListItem} >
-                <FeaturedPlayListOutlinedIcon className={classes.sideMenuListItemIcon} />
-                <Hidden smDown>
-                    <Typography className={classes.sideMenuListItemLabel} variant='h6'>
-                        Списки
-                    </Typography>
-                </Hidden>
-            </li>
-            <li className={classes.sideMenuListItem} >
-                <PermIdentityOutlinedIcon className={classes.sideMenuListItemIcon} />
-                <Hidden smDown>
-                    <Typography className={classes.sideMenuListItemLabel} variant='h6'>
-                        Профиль
-                    </Typography>
-                </Hidden>
+                      </Hidden>
+                    </div>
             </li>
 
-                <Button
-                    className={classes.sideMenuTweetButton}
-                    variant='contained'
-                    color='primary'
-                    fullWidth>
-                    <Hidden smDown>Твитнуть</Hidden>
-                    <Hidden mdUp>
-                        <CreateIcon />
-                    </Hidden>
-                </Button>
-
+            <li className={classes.sideMenuListItem} >
+                <div>
+                  <SearchIcon className={classes.sideMenuListItemIcon} />
+                  <Hidden smDown>
+                    <Typography className={classes.sideMenuListItemLabel} variant='h6'>
+                      Поиск
+                    </Typography>
+                  </Hidden>
+                </div>
+            </li>
+            <li className={classes.sideMenuListItem} >
+                <div>
+                  <NotificationsNoneOutlinedIcon className={classes.sideMenuListItemIcon} />
+                  <Hidden smDown>
+                    <Typography className={classes.sideMenuListItemLabel} variant='h6'>
+                      Уведомления
+                    </Typography>
+                  </Hidden>
+                </div>
+            </li>
+            <li className={classes.sideMenuListItem} >
+               <div>
+                 <MailOutlineOutlinedIcon className={classes.sideMenuListItemIcon} />
+                 <Hidden smDown>
+                   <Typography className={classes.sideMenuListItemLabel} variant='h6'>
+                     Сообщения
+                   </Typography>
+                 </Hidden>
+               </div>
+            </li>
+            <li className={classes.sideMenuListItem} >
+                <div>
+                  <BookmarkBorderOutlinedIcon className={classes.sideMenuListItemIcon} />
+                  <Hidden smDown>
+                    <Typography className={classes.sideMenuListItemLabel} variant='h6'>
+                      Закладки
+                    </Typography>
+                  </Hidden>
+                </div>
+            </li>
+            <li className={classes.sideMenuListItem} >
+                <div>
+                  <FeaturedPlayListOutlinedIcon className={classes.sideMenuListItemIcon} />
+                  <Hidden smDown>
+                    <Typography className={classes.sideMenuListItemLabel} variant='h6'>
+                      Списки
+                    </Typography>
+                  </Hidden>
+                </div>
+            </li>
+            <li className={classes.sideMenuListItem} >
+                <div>
+                  <PermIdentityOutlinedIcon className={classes.sideMenuListItemIcon} />
+                  <Hidden smDown>
+                    <Typography className={classes.sideMenuListItemLabel} variant='h6'>
+                      Профиль
+                    </Typography>
+                  </Hidden>
+                </div>
+            </li>
+            <li className={classes.sideMenuListItem}>
+            <Button
+              onClick={handleClickOpenAddTweet}
+              className={classes.sideMenuTweetButton}
+              variant='contained'
+              color='primary'
+              fullWidth>
+              <Hidden smDown>Твитнуть</Hidden>
+              <Hidden mdUp>
+                <CreateIcon />
+              </Hidden>
+            </Button>
+            <DialogWindow onClose={onCloseAddTweet} visible={visibleAddTweet}>
+              <div style={{ width: 550 }}>
+              <AddTweetForm maxRows={15} classes={classes}/>
+              </div>
+            </DialogWindow>
+          </li>
         </ul>
     );
 }

@@ -7,7 +7,7 @@ import Dialog from "@material-ui/core/Dialog";
 import {useStylesSignIn} from "../../pages/SignIn";
 
 interface DialogWindowProps {
-    title: string;
+    title?: string;
     children: React.ReactNode;
     classes?: ReturnType<typeof useStylesSignIn>;
     visible?: boolean;
@@ -25,7 +25,7 @@ onClose,
     }
 
     return (
-        <Dialog open={visible} onClose={onClose} aria-busy={true}>
+        <Dialog  open={visible} onClose={onClose} aria-busy={true}>
         <DialogTitle id='form-dialog-title'>
             <IconButton onClick={onClose} color='secondary' aria-label='close'>
                 <CloseIcon style={{ fontSize: 26 }} color='primary'></CloseIcon>
