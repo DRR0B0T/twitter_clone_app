@@ -11,7 +11,7 @@ import {
   ListItem,
   ListItemText,
   Divider,
-  ListItemAvatar,
+  ListItemAvatar, CircularProgress,
 } from "@material-ui/core";
 import {Tweet} from "../../components/Tweet/Tweet";
 import {SideBar} from "../../components/SideBar/SideBar";
@@ -20,10 +20,22 @@ import PersonAddIcon from '@material-ui/icons/PersonAddOutlined';
 import AddTweetForm from "../../components/AddTweetForm/AddTweetForm";
 import { useHomeStyles } from './theme';
 import { SearchTextField } from '../../components/SerachTextField/SearchTextField'
+import {useDispatch, useSelector} from "react-redux";
+import {fetchTweets} from "../../store/ducks/tweets/actionCreators";
+import {selectIsTweetsLoading, selectTweetsItems} from "../../store/ducks/tweets/selectors";
 
 
 export const Home = ():React.ReactElement => {
   const classes = useHomeStyles()
+  const dispatch = useDispatch()
+  const tweets = useSelector(selectTweetsItems)
+  const isLoading = useSelector(selectIsTweetsLoading)
+
+
+
+  React.useEffect(() => {
+    dispatch(fetchTweets())
+  },[dispatch])
 
   return (
     <Container className={classes.wrapper} maxWidth="lg">
@@ -42,22 +54,13 @@ export const Home = ():React.ReactElement => {
               <div className={classes.addFormBottomLine} />
             </Paper>
 
-            {
-              [...new Array(10).fill(
+            {isLoading ? <div className={classes.tweetsCentered}><CircularProgress /></div> : tweets.map((tweet) =>
                 <Tweet
-                  user={{
-                    fullname: 'Дмитрий Медведев',
-                    username: 'MedvedevRussia',
-                    avatarUrl: "https://images.unsplash.com/photo-1497551060073-4c5ab6435f12?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fG1hbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-                  }}
-                  text='Американские политики провели слушания
-                                        «Понимание авторитаризма и клептократии в России».
-                                        На них обсуждали ситуацию с Навальным, голосование по Конституции,
-                                        санкции против «Северного потока-2», а также коррупцию и цензуру в России.'
+                  key={tweet._id}
+                  user={tweet.user}
+                  text={tweet.text}
                   classes={classes}
-                />
-              )]
-            }
+                />)}
           </Paper>
 
         </Grid>

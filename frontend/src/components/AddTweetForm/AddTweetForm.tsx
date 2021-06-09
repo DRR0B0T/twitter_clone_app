@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Avatar, Button, CircularProgress, IconButton, TextareaAutosize} from "@material-ui/core";
 import classNames from "classnames";
 import ImageOutlinedIcon from "@material-ui/icons/ImageOutlined";

@@ -25,40 +25,43 @@ export const  Tweet: React.FC<TweetProps> = ({ text, user, classes }: TweetProps
                         alt={`Аватарка пользователя ${user.fullname}`}
                         src={user.avatarUrl}
                     />
-                    <Typography>
-                        <b>{user.fullname}</b>&nbsp;
-                        <span className={classes.tweetUserName}>@{user.username}</span>&nbsp;
-                        <span className={classes.tweetUserName}>·</span>&nbsp;
-                        <span className={classes.tweetUserName}>1 ч</span>
-                    </Typography>
-                    <Typography className={classes.tweetHeader} variant='body1' gutterBottom>
-                        {text}
-                    </Typography>
+        <div>
+          <Typography>
+            <b>{user.fullname}</b>&nbsp;
+            <span className={classes.tweetUserName}>@{user.username}</span>&nbsp;
+            <span className={classes.tweetUserName}>·</span>&nbsp;
+            <span className={classes.tweetUserName}>1 ч</span>
+          </Typography>
+          <Typography className={classes.tweetHeader} variant='body1' gutterBottom>
+            {text}
+          </Typography>
 
 
-                    <div className={classes.tweetUserFooter}>
-                        <div>
-                            <IconButton color='primary'>
-                                <ChatBubbleOutlineOutlinedIcon style={{ fontSize: '21' }} />
-                            </IconButton>
-                            <span>1</span>
-                        </div>
-                        <div>
-                            <IconButton color='primary'>
-                                <RepeatOutlinedIcon style={{ fontSize: '21' }} />
-                            </IconButton>
-                        </div>
-                        <div>
-                            <IconButton >
-                                <FavoriteBorderOutlinedIcon style={{ fontSize: '21' }} />
-                            </IconButton>
-                        </div>
-                        <div>
-                            <IconButton color='primary'>
-                                <ReplyOutlinedIcon style={{ fontSize: '21' }} />
-                            </IconButton>
-                        </div>
-                    </div>
+          <div className={classes.tweetUserFooter}>
+            <div>
+              <IconButton color='primary'>
+                <ChatBubbleOutlineOutlinedIcon style={{ fontSize: '21' }} />
+              </IconButton>
+              <span>1</span>
+            </div>
+            <div>
+              <IconButton color='primary'>
+                <RepeatOutlinedIcon style={{ fontSize: '21' }} />
+              </IconButton>
+            </div>
+            <div>
+              <IconButton >
+                <FavoriteBorderOutlinedIcon style={{ fontSize: '21' }} />
+              </IconButton>
+            </div>
+            <div>
+              <IconButton color='primary'>
+                <ReplyOutlinedIcon style={{ fontSize: '21' }} />
+              </IconButton>
+            </div>
+          </div>
+        </div>
+
          </Paper>
     );
 }

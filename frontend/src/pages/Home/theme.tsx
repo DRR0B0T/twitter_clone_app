@@ -63,6 +63,10 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
     borderTop: '0',
     borderBottom: '0',
   },
+  tweetsCentered:{
+    marginTop: 50,
+    textAlign: 'center',
+  },
   tweet: {
     display: 'flex',
     cursor: 'pointer',
@@ -74,7 +78,6 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
   },
   tweetHeader: {
     display: 'flex',
-
     borderTop: '0',
     borderRight: '0',
     borderLeft: '0',
@@ -91,8 +94,8 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
     marginRight: 15,
   },
   tweetUserFooter: {
-    display: 'flex',
     position: 'relative',
+    display: 'flex',
     left: -14,
     justifyContent: 'space-between',
     maxWidth: 450,
