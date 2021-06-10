@@ -4,6 +4,6 @@ import {TweetsState} from "../../store/ducks/tweets/contracts/state";
 
 export const TweetsApi = {
   fetchTweets(): Promise<TweetsState['items']> {
-    return axios.get('https://trycode.pw/c/KN156.json').then(({data})=>data)
+    return axios.get('/tweets').then(({data})=>data)
   }
 }

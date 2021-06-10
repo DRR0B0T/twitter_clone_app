@@ -141,6 +141,10 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
     },
     '&:hover': {
       backgroundColor: '#SDF3F6',
+    },
+    '& a': {
+      color: 'inherit',
+      textDecoration: 'none',
     }
   },
   addForm: {

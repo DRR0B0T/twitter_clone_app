@@ -23,6 +23,9 @@ import { SearchTextField } from '../../components/SerachTextField/SearchTextFiel
 import {useDispatch, useSelector} from "react-redux";
 import {fetchTweets} from "../../store/ducks/tweets/actionCreators";
 import {selectIsTweetsLoading, selectTweetsItems} from "../../store/ducks/tweets/selectors";
+import {fetchTags} from "../../store/tags/actionCreators";
+import {Tags} from "../../components/Tags/Tags";
+import { Route } from 'react-router-dom';
 
 
 export const Home = ():React.ReactElement => {
@@ -35,6 +38,7 @@ export const Home = ():React.ReactElement => {
 
   React.useEffect(() => {
     dispatch(fetchTweets())
+    dispatch(fetchTags())
   },[dispatch])
 
   return (
@@ -53,14 +57,15 @@ export const Home = ():React.ReactElement => {
               <div className={classes.addForm}><AddTweetForm classes={classes}/></div>
               <div className={classes.addFormBottomLine} />
             </Paper>
-
-            {isLoading ? <div className={classes.tweetsCentered}><CircularProgress /></div> : tweets.map((tweet) =>
+            <Route path='/home' exact>
+              {isLoading ? <div className={classes.tweetsCentered}><CircularProgress /></div> : tweets.map((tweet) =>
                 <Tweet
                   key={tweet._id}
                   user={tweet.user}
                   text={tweet.text}
                   classes={classes}
                 />)}
+            </Route>
           </Paper>
 
         </Grid>
@@ -78,35 +83,7 @@ export const Home = ():React.ReactElement => {
               }}
               fullWidth
             />
-            <Paper className={classes.rightSideBlock}>
-              <Paper className={classes.rightSideBlockHeader} variant='outlined'>
-                <b>Актуальные темы</b>
-              </Paper>
-              <List>
-                <ListItem>
-                  <ListItemText
-                    primary='Альметьевск'
-                    secondary={
-                      <Typography component='span' variant='body2'>
-                        Твитов: 4200
-                      </Typography>
-                    }
-                  />
-                </ListItem>
-                <Divider component='li'/>
-                <ListItem>
-                  <ListItemText
-                    primary='Казань'
-                    secondary={
-                      <Typography component='span' variant='body2'>
-                        Твитов: 42420
-                      </Typography>
-                    }
-                  />
-                </ListItem>
-                <Divider component='li'/>
-              </List>
-            </Paper>
+            <Tags classes={classes}  />
             <Paper className={classes.rightSideBlock}>
               <Paper className={classes.rightSideBlockHeader} variant='outlined'>
                 <b>Кого читать</b>

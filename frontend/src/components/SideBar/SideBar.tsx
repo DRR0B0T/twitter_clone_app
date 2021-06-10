@@ -12,6 +12,7 @@ import CreateIcon from '@material-ui/icons/Create';
 import {useHomeStyles} from "../../pages/Home/theme";
 import DialogWindow from "../DialogWindow/DialogWindow";
 import AddTweetForm from "../AddTweetForm/AddTweetForm";
+import {Link} from "react-router-dom";
 
 interface SideBarProps {
     classes: ReturnType<typeof useHomeStyles>
@@ -31,9 +32,11 @@ export const SideBar: React.FC<SideBarProps> = ({classes}: SideBarProps): React.
   return (
         <ul className={classes.sideMenuList}>
             <li className={classes.sideMenuListItem} >
-                <IconButton className={classes.logo} aria-label="" color='primary' >
+                <Link to='/home'>
+                  <IconButton className={classes.logo} aria-label="" color='primary' >
                     <TwitterIcon className={classes.logoIcon} />
-                </IconButton>
+                  </IconButton>
+                </Link>
             </li>
 
             <li className={classes.sideMenuListItem} >
