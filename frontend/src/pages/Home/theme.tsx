@@ -63,12 +63,17 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
     borderTop: '0',
     borderBottom: '0',
   },
+  tweetWrapper: {
+    color: 'inherit',
+    textDecoration: 'none'
+  },
   tweetsCentered:{
     marginTop: 50,
     textAlign: 'center',
   },
   tweet: {
     display: 'flex',
+    alignItems: 'flex-start',
     cursor: 'pointer',
     paddingTop: 15,
     paddingLeft: 20,
@@ -76,14 +81,18 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
       backgroundColor: 'rgb(245, 248, 250)',
     }
   },
+  tweetHeaderBackArrow: {
+    marginRight: 30,
+  },
   tweetHeader: {
     display: 'flex',
+    alignItems: 'center',
     borderTop: '0',
     borderRight: '0',
     borderLeft: '0',
     borderRadius: 0,
     top: 0,
-    padding: '10px 15px',
+    padding: '10px 15px 10px 0px',
     '& h6': {
       fontWeight: 800,
     },

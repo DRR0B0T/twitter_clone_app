@@ -2,7 +2,7 @@ import React from 'react';
 
 import {useHomeStyles} from "../../pages/Home/theme";
 import {Divider, List, ListItem, ListItemText, Paper, Typography} from "@material-ui/core";
-import {selectIsTagsLoaded, selectTagsItems} from "../../store/tags/selectors";
+import {selectIsTagsLoaded, selectTagsItems} from "../../store/ducks/tags/selectors";
 import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 
@@ -13,7 +13,6 @@ interface TagsProps {
 export const  Tags: React.FC<TagsProps> = ({ classes }: TagsProps): React.ReactElement | null => {
   const items = useSelector(selectTagsItems)
   const isLoaded = useSelector(selectIsTagsLoaded)
-  console.log(isLoaded)
 
   if(!isLoaded){
     return null

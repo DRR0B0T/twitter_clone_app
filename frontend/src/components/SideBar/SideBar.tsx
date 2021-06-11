@@ -1,7 +1,6 @@
 import React from 'react';
 import {Button, Hidden, IconButton, Typography} from "@material-ui/core";
 import TwitterIcon from "@material-ui/icons/Twitter";
-import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import SearchIcon from "@material-ui/icons/Search";
 import NotificationsNoneOutlinedIcon from "@material-ui/icons/NotificationsNoneOutlined";
 import MailOutlineOutlinedIcon from "@material-ui/icons/MailOutlineOutlined";
@@ -37,17 +36,6 @@ export const SideBar: React.FC<SideBarProps> = ({classes}: SideBarProps): React.
                     <TwitterIcon className={classes.logoIcon} />
                   </IconButton>
                 </Link>
-            </li>
-
-            <li className={classes.sideMenuListItem} >
-                    <div>
-                      <HomeOutlinedIcon className={classes.sideMenuListItemIcon} color='primary'/>
-                      <Hidden smDown>
-                        <Typography color='primary' className={classes.sideMenuListItemLabel} variant='h6'>
-                          Главная
-                        </Typography>
-                      </Hidden>
-                    </div>
             </li>
 
             <li className={classes.sideMenuListItem} >

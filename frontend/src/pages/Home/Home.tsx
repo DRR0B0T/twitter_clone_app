@@ -23,9 +23,11 @@ import { SearchTextField } from '../../components/SerachTextField/SearchTextFiel
 import {useDispatch, useSelector} from "react-redux";
 import {fetchTweets} from "../../store/ducks/tweets/actionCreators";
 import {selectIsTweetsLoading, selectTweetsItems} from "../../store/ducks/tweets/selectors";
-import {fetchTags} from "../../store/tags/actionCreators";
+import {fetchTags} from "../../store/ducks/tags/actionCreators";
 import {Tags} from "../../components/Tags/Tags";
 import { Route } from 'react-router-dom';
+import {BackButton} from "../../components/BackButton/BackButton";
+import {FullTweet} from "./FullTweet/FullTweet";
 
 
 export const Home = ():React.ReactElement => {
@@ -49,22 +51,40 @@ export const Home = ():React.ReactElement => {
         </Grid>
         <Grid item md={6} sm={8}>
           <Paper className={classes.tweetsWrapper} variant="outlined" >
-            <Paper className={classes.tweetHeader}  variant="outlined" >
-              <Typography variant='h6'>Главная</Typography>
-            </Paper>
+             <Paper className={classes.tweetHeader}  variant="outlined" >
 
-            <Paper>
-              <div className={classes.addForm}><AddTweetForm classes={classes}/></div>
-              <div className={classes.addFormBottomLine} />
-            </Paper>
+           <Route exact path='/home/:any'>
+            <BackButton />
+           </Route>
+
+           <Route exact path={['/home', 'home/search']}>
+               <Typography variant='h6'>Твиты</Typography>
+           </Route>
+
+           <Route exact path='/home/tweet'>
+               <Typography variant='h6'>Твитнуть</Typography>
+           </Route>
+
+             </Paper>
+            <Route exact path={['/home', '/search']}>
+              <Paper>
+                <div className={classes.addForm}><AddTweetForm classes={classes}/></div>
+                <div className={classes.addFormBottomLine} />
+              </Paper>
+            </Route>
             <Route path='/home' exact>
-              {isLoading ? <div className={classes.tweetsCentered}><CircularProgress /></div> : tweets.map((tweet) =>
+              {isLoading
+                ? <div className={classes.tweetsCentered}><CircularProgress /></div>
+                : tweets.map((tweet) =>
                 <Tweet
                   key={tweet._id}
-                  user={tweet.user}
-                  text={tweet.text}
                   classes={classes}
+                  {...tweet}
                 />)}
+            </Route>
+
+            <Route path='home/tweet/:id' component={FullTweet} exact>
+
             </Route>
           </Paper>
 
