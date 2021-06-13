@@ -1,3 +1,8 @@
+{
+type: 'tweet/SET_TWEET_DATA',
+ payload: '60bf6cb54ec5017f315c26c9'
+}
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

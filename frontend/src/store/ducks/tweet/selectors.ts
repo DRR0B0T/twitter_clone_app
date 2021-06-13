@@ -12,5 +12,5 @@ export const  selectIsTweetLoading = (state: RootState): boolean =>
 export const  selectIsTweetLoaded = (state: RootState): boolean =>
   selectLoadingState(state) === LoadingState.LOADED
 
-export const selectTweetItems =
-  (state: RootState): TweetState['data'] =>selectTweet(state).data
+export const selectTweetData =
+  (state: RootState): TweetState['data'] => selectTweet(state).data

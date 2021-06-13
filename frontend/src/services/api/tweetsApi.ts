@@ -7,7 +7,7 @@ export const TweetsApi = {
     return axios.get('/tweets').then(({data})=>data)
   },
 
-  fetchTweetData(id: string): Promise<Tweet> {
+  fetchTweetData(id: string): Promise<Tweet[]> {
     return axios.get('/tweets?_id=' + id).then(({data})=>data)
   }
 }
