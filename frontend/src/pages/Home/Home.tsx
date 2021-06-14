@@ -57,7 +57,7 @@ export const Home = ():React.ReactElement => {
             <BackButton />
            </Route>
 
-           <Route exact path={['/home', 'home/search']}>
+           <Route exact path={['/home', '/home/search']}>
                <Typography variant='h6'>Твиты</Typography>
            </Route>
 
@@ -83,7 +83,7 @@ export const Home = ():React.ReactElement => {
                 />)}
             </Route>
 
-            <Route path='home/tweet/:id' component={FullTweet} exact>
+            <Route path='/home/tweet/:id' component={FullTweet} exact>
 
             </Route>
           </Paper>
