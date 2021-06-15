@@ -53,20 +53,20 @@ export const Home = ():React.ReactElement => {
           <Paper className={classes.tweetsWrapper} variant="outlined" >
              <Paper className={classes.tweetHeader}  variant="outlined" >
 
-           <Route exact path='/home/:any'>
+           <Route  path='/home/:any'>
             <BackButton />
            </Route>
 
            <Route exact path={['/home', '/home/search']}>
-               <Typography variant='h6'>Твиты</Typography>
+               <Typography style={{ marginLeft: 20 }} variant='h6'>Твиты</Typography>
            </Route>
 
-           <Route exact path='/home/tweet'>
+           <Route  path='/home/tweet'>
                <Typography variant='h6'>Твитнуть</Typography>
            </Route>
 
              </Paper>
-            <Route exact path={['/home', '/search']}>
+            <Route  path={['/home', '/search']}>
               <Paper>
                 <div className={classes.addForm}><AddTweetForm classes={classes}/></div>
                 <div className={classes.addFormBottomLine} />
@@ -103,7 +103,7 @@ export const Home = ():React.ReactElement => {
               }}
               fullWidth
             />
-            <Tags classes={classes}  />
+              <Tags classes={classes}  />
             <Paper className={classes.rightSideBlock}>
               <Paper className={classes.rightSideBlockHeader} variant='outlined'>
                 <b>Кого читать</b>

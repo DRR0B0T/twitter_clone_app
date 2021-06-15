@@ -1,7 +1,7 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from 'react-router-dom';
-import {fetchTweetData} from "../../../store/ducks/tweet/actionCreators";
+import {fetchTweetData, setTweetData} from "../../../store/ducks/tweet/actionCreators";
 import {useHomeStyles} from "../theme";
 import {Tweet} from "../../../components/Tweet/Tweet";
 import { selectIsTweetLoading, selectTweetData} from "../../../store/ducks/tweet/selectors";
@@ -19,18 +19,23 @@ export const FullTweet: React.FC = (): React.ReactElement | null => {
     if (id) {
       dispatch(fetchTweetData(id))
     }
+
+    return () => {
+      dispatch(setTweetData(undefined))
+    }
   }, [dispatch, id])
 
-  if (!tweetData) {
-    return null
+  if (isLoading) {
+    return (
+      <div className={classes.tweetsCentered}>
+        <CircularProgress/>
+      </div>
+    )
   }
 
-  return isLoading ? (
-    <div className={classes.tweetsCentered}>
-      <CircularProgress/>
-    </div>
-  ) : (
-    <Tweet classes={classes} {...tweetData}/>)
+  if (tweetData) {
+    return <Tweet classes={classes} {...tweetData}/>
+  }
 
-
+  return  null
 }
