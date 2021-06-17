@@ -1,11 +1,21 @@
-import * as express from express;
+import {UserCtrl} from "./controllers/UserController";
+import {registerValidations} from "./validations/register";
+import './core/db'
+const express = require('express');
+const dotenv = require('dotenv')
+
 const app = express();
 
-app.get('/hello',(_, res: express.Response) =>{
-  res.send('hello')
-})
+dotenv.config()
 
-app.listen(8888, ()=>{
+app.use(express.json())
 
-  console.log('SERVER RUNNED')
+app.get('/users', UserCtrl.index)
+app.post('/users', registerValidations , UserCtrl.create)
+// app.patch('/users', UserCtrl.update)
+// app.delete('/users', UserCtrl.delete)
+
+app.listen(process.env.PORT, (): void=>{
+
+  console.log('SERVER RUNNING!')
 })
