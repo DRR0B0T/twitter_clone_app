@@ -1,11 +1,26 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
     "target": "es5",
+    "module": "commonjs",
     "sourceMap": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowJs": false,
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "preserveConstEnums": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": false,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "resolveJsonModule": true,
+    "jsx": "react"
   },
-  "exclude": [
-    "node_modules"
-  ]
+  "files": ["./node_modules/@types/node/index.d.ts"],
+  "exclude": ["node_modules"],
+  "include": ["src/**/*.ts"],
+  "typeRoots": ["./node_modules/@types"]
 }

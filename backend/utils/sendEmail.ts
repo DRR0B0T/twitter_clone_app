@@ -1,17 +1,19 @@
-import mailer from "../core/mailer";
 import {SentMessageInfo} from "nodemailer";
+import {mailer} from "../core/mailer";
+
+
 
 interface SendEmailProps {
-  emailFrom:string;
-  emailTo:string;
-  subject:string;
-  html:string;
+  emailFrom: string;
+  emailTo: string;
+  subject: string;
+  html: string;
 
 }
 
 export const sendEmail = (
   { emailFrom, emailTo, subject, html }:SendEmailProps,
-  callback?:(err: Error | null, info: SentMessageInfo)=>void
+  callback?: (err: Error | null, info: SentMessageInfo) => void
 ) => {
   mailer.sendMail({
       from: emailFrom,
