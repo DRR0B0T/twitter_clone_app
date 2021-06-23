@@ -2,11 +2,10 @@ import {UserModel, UserModelDocumentInterface, UserModelInterface} from "../mode
 import {validationResult} from "express-validator";
 import {generateMD5} from "../utils/generateHash";
 import {sendEmail} from "../utils/sendEmail";
-import mongoose = require("mongoose");
 import express = require("express");
+import {isValidObjectId} from "../utils/isValidObjectId";
 const jwt =  require('jsonwebtoken');
 
-const isValidObjectId = mongoose.Types.ObjectId.isValid
 
 class UserController {
   async index(_: any, res: express.Response): Promise<void> {
@@ -72,7 +71,7 @@ class UserController {
         emailTo: data.email,
         subject: "Подтверждение почты twitter",
         html: `Для того, чтобы подтвердить почту перейдите по адресу 
-        <a href="http://localhost:${process.env.PORT || 8888}/users/verify?hash=${data.confirmHash}">по этой ссылке</a>`,
+        <a href="http://localhost:${process.env.PORT || 8888}/auth/verify?hash=${data.confirmHash}">по этой ссылке</a>`,
       },
     (err: Error | null) => {
         if (err){
@@ -132,8 +131,23 @@ class UserController {
         status: 'success',
         data: {
           ...user,
-          token: jwt.sign({data: req.user} , process.env.SECRET_KEY || '123')
+          token: jwt.sign({data: req.user} , process.env.SECRET_KEY || '123', {expiresIn: '30d'})
         }
+      })
+    } catch (error) {
+      res.status(500).json({
+        status: 'error',
+        message: error
+      })
+    }
+  }
+
+  async getUserInfo(req: express.Request, res: express.Response): Promise<void> {
+    try {
+      const user = req.user ? (req.user as UserModelDocumentInterface).toJSON() : undefined
+      res.json({
+        status: 'success',
+        data: user
       })
     } catch (error) {
       res.status(500).json({

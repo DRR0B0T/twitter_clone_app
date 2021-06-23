@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d1362046-72b3-4f12-af2a-07217ca5369f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/controllers/TweetsController.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/models/TweetModel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/utils/isValidObjectId.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/root.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/twitter_clone_app.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/UserController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/UserController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/core/passport.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/core/passport.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/.yarn-integrity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+        <option value="tsconfig.json" />
+        <option value="package.json" />
+        <option value="JavaScript File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1t6h8CUR4poYgyzaWelUBRvwLTo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/frontend/yarn-error.log" />
+    <property name="ignore_missing_gitignore" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sneakers" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="ts.external.directory.path" value="C:\Users\root\Documents\GitHub\twitter_clone_app\frontend\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\frontend\src\store\ducks" />
+      <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\frontend\src\store\ducks\tweets" />
+      <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\frontend\src\store\tags" />
+      <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\frontend\src\store" />
+      <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\frontend\src\store\ducls\tweets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\backend\models" />
+      <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\backend\controllers" />
+      <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\backend" />
+      <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\frontend\src\store\ducks" />
+      <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\frontend\src\store" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Node.js.123.js">
+    <configuration name="123.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/backend/123.js" working-dir="$PROJECT_DIR$/backend">
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.123.js" />
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d1362046-72b3-4f12-af2a-07217ca5369f" name="Default Changelist" comment="" />
+      <created>1622095290151</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1622095290151</updated>
+      <workItem from="1622095323647" duration="472000" />
+      <workItem from="1622725449007" duration="117000" />
+      <workItem from="1622791487388" duration="295000" />
+      <workItem from="1622801395076" duration="308000" />
+      <workItem from="1623006675341" duration="12713000" />
+      <workItem from="1623131387102" duration="12865000" />
+      <workItem from="1623225836378" duration="11692000" />
+      <workItem from="1623303249242" duration="13000000" />
+      <workItem from="1623393175736" duration="20349000" />
+      <workItem from="1623567342389" duration="6451000" />
+      <workItem from="1623660737041" duration="11720000" />
+      <workItem from="1623737381402" duration="20626000" />
+      <workItem from="1623827627545" duration="19199000" />
+      <workItem from="1623907690399" duration="11209000" />
+      <workItem from="1623999168358" duration="7217000" />
+      <workItem from="1624175042183" duration="233000" />
+      <workItem from="1624263370826" duration="27111000" />
+      <workItem from="1624378262720" duration="16000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="570" y="249" key="#Notifications" timestamp="1622725551305">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="570" y="249" key="#Notifications/0.0.1366.768@0.0.1366.768" timestamp="1622725551305" />
+    <state x="778" y="133" key="FileChooserDialogImpl" timestamp="1624378296969">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="778" y="133" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1624378296969" />
+    <state width="670" height="302" key="GridCell.Tab.0.bottom" timestamp="1624377342448">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="670" height="302" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1624377342448" />
+    <state width="670" height="302" key="GridCell.Tab.0.center" timestamp="1624377342447">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="670" height="302" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1624377342447" />
+    <state width="670" height="302" key="GridCell.Tab.0.left" timestamp="1624377342447">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="670" height="302" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1624377342447" />
+    <state width="670" height="302" key="GridCell.Tab.0.right" timestamp="1624377342448">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="670" height="302" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1624377342448" />
+    <state x="523" y="118" key="IDE.errors.dialog" timestamp="1623676516367">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="523" y="118" key="IDE.errors.dialog/0.0.1366.768@0.0.1366.768" timestamp="1623676516367" />
+    <state x="368" y="28" key="SettingsEditor" timestamp="1623831344922">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="368" y="28" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1623831344922" />
+    <state x="667" y="0" width="583" height="768" key="find.popup" timestamp="1623136183567">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="667" y="0" width="583" height="768" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1623136183567" />
+    <state width="600" height="440" key="javadoc.popup" timestamp="1623667019580">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="600" height="440" key="javadoc.popup/0.0.1366.768@0.0.1366.768" timestamp="1623667019580" />
+    <state x="664" y="174" key="run.anything.popup" timestamp="1623755019047">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="664" y="174" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1623755019047" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1623831351540">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1623831351540" />
+  </component>
+</project>
