@@ -1,9 +1,10 @@
 import {model, Schema, Document} from "mongoose";
+import { UserModelInterface} from "./UserModel";
 
 export interface TweetModelInterface {
   _id?: string;
   text: string;
-  user: string;
+  user: UserModelInterface;
 }
 
 export type TweetModelDocumentInterface = TweetModelInterface & Document
@@ -11,14 +12,18 @@ export type TweetModelDocumentInterface = TweetModelInterface & Document
 const TweetSchema = new Schema<TweetModelInterface>({
   text: {
     required: true,
-    type: String
+    type: String,
+    maxlength: 280
   },
   user: {
     ref: 'User',
     required: true,
     type: Schema.Types.ObjectId
   },
-})
+},
+  {
+    timestamps: true,
+  })
 
 
-export const TweetModel = model<TweetModelDocumentInterface>('User', TweetSchema)
+export const TweetModel = model<TweetModelDocumentInterface>('Tweet', TweetSchema)

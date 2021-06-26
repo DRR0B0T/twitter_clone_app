@@ -4,7 +4,7 @@ import {useParams} from 'react-router-dom';
 import {fetchTweetData, setTweetData} from "../../../store/ducks/tweet/actionCreators";
 import {useHomeStyles} from "../theme";
 import { selectIsTweetLoading, selectTweetData} from "../../../store/ducks/tweet/selectors";
-import {Avatar, CircularProgress, IconButton, Paper, Typography} from "@material-ui/core";
+import {Avatar, CircularProgress,  Paper, Typography} from "@material-ui/core";
 
 
 export const FullTweet: React.FC = (): React.ReactElement | null => {
