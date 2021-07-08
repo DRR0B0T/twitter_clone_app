@@ -20,19 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1362046-72b3-4f12-af2a-07217ca5369f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/validations/createTweet.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/controllers/TweetsController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/TweetsController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/core/passport.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/core/passport.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/TweetModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/TweetModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/UserModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/UserModel.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/.yarn-integrity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home/FullTweet/FullTweet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home/FullTweet/FullTweet.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/services/api/tagsApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/api/tagsApi.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/services/api/tweetsApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/api/tweetsApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/store/ducks/tweets/selectors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/ducks/tweets/selectors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/ducks/tweets/sagas.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/ducks/tweets/sagas.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,25 +60,25 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/frontend/yarn-error.log" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sneakers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Errors" />
-    <property name="ts.external.directory.path" value="C:\Users\root\Documents\GitHub\twitter_clone_app\frontend\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\frontend\src\store\ducks" />
-      <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\frontend\src\store\ducks\tweets" />
-      <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\frontend\src\store\tags" />
-      <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\frontend\src\store" />
-      <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\frontend\src\store\ducls\tweets" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\backend\validations" />
       <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\backend\models" />
       <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\backend\controllers" />
       <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\backend" />
       <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\frontend\src\store\ducks" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\frontend\src\store\ducks" />
+      <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\frontend\src\store\ducks\tweets" />
+      <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\frontend\src\store\tags" />
+      <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\frontend\src\store" />
+      <recent name="C:\Users\root\Documents\GitHub\twitter_clone_app\frontend\src\store\ducls\tweets" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.123.js">
@@ -143,6 +135,8 @@
       <workItem from="1624604859144" duration="1552000" />
       <workItem from="1624620925709" duration="5869000" />
       <workItem from="1624691123860" duration="41000" />
+      <workItem from="1625566998652" duration="643000" />
+      <workItem from="1625719350396" duration="6129000" />
     </task>
     <servers />
   </component>
